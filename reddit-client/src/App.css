@@ -45,3 +45,83 @@ header {
 #search-input:focus {
   outline: none;
 }
+
+main {
+  position: relative;
+  top: 2em;
+  height: auto;
+  width: 100%;
+}
+
+#main-section {
+  display: grid;
+  grid-template-columns: 2.6fr .9fr;
+  column-gap: 30px;
+  width: 95%;
+  height: auto; /* remove pls*/
+  margin: 0 auto;
+}
+
+#post-section {
+  height: auto;
+  
+}
+
+#pages-section {
+  height: 600px;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0px 0px 15px 2px #d6d6d6;
+}
+
+
+/* POSTS */
+.post {
+  width: 97%;
+  height: auto;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0px 0px 15px 2px #d6d6d6;
+  padding: 1em 1em;
+  margin-bottom: 2em;
+}
+
+.vote-post {
+  position: absolute;
+  width: 4em;
+  height: 8em;
+  background-color: aquamarine;
+}
+
+.main-post-txt {
+  display: inline-block;
+  position: relative;
+  height: auto;
+  width: 75%;
+  background-color: #3d5af1;
+  left: 5.15em;
+}
+
+.img-div-post {
+  height: 300px;
+  background-color: #181818;
+  width: 88%;
+  position: relative;
+  left: 5.15em;
+  margin-top: 1.5em;
+}
+
+.img-post {
+  height: auto;
+  width: auto;
+}
+
+.footer-post {
+  height: 3em;
+  width: 90%;
+  background-color: antiquewhite;
+  position: relative;
+  left: 4.55em;
+  margin-top: 1.5em;
+  border-top: 2px solid #d6d6d6;
+}
