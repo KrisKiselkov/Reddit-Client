@@ -114,6 +114,7 @@ main {
 .img-post {
   height: auto;
   width: auto;
+  border-radius: 8px;
 }
 
 .footer-post {
