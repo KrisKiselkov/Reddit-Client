@@ -1,6 +1,34 @@
+import { useEffect } from "react";
+import { useState } from "react";
+import { useRef } from "react";
 
 
 export function Main() {
+    const [isActive, setIsActive] = useState(false);
+    const subDivRef = useRef(null);
+
+    useEffect(() => {
+        const subDiv = subDivRef.current;
+        
+        if (subDiv) {
+            subDiv.addEventListener("mousedown", toggleBackground);
+            
+            return () => subDiv.removeEventListener("mousedown", toggleBackground);
+        }
+    }, []);
+    const subD = document.querySelector(".subred-div");
+    if (isActive) {
+        subD.classList.toggle("active", isActive)
+    } else {
+        subD.classList.remove("active");
+    }
+    console.log(isActive)
+
+    const toggleBackground = () => {
+        setIsActive(prev => !prev);
+    };
+
+
     return(
         <main>
             <section id="main-section">
@@ -55,7 +83,17 @@ export function Main() {
                 </section>
 
                 <section id="pages-section">
-                    
+                    <div id="subred-section">
+                        <h2>Subreddits</h2>
+                        <div ref={subDivRef} className="subred-div">
+                            <img src={require("./images/subreddit_1.png")} className="subred-img"/>
+                            <p className="subred-p">FirstSubreddit</p>
+                        </div>
+                        <div className="subred-div">
+                            <img src={require("./images/subreddit_2.png")} className="subred-img"/>
+                            <p className="subred-p">SecondSubreddit</p>
+                        </div>
+                    </div>                  
                 </section>
             </section>
         </main>

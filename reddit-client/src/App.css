@@ -7,7 +7,6 @@ body {
 header {
   display: flex;
   align-items: center;
-  padding: 0em 3em;
   height: 4.1em;
   width: 100%;
   box-shadow: 0px 5px 5px 2px #dfdfdf;
@@ -16,10 +15,13 @@ header {
 #logo-icon {
   position: relative;
   top: 5px;
+  left: 3em;
   margin-right: 8px;
 }
 
 #logo-txt {
+  position: relative;
+  left: 3em;
   font-weight: 500;
   font-size: 16px;
   color: #3d5af1;
@@ -31,7 +33,7 @@ header {
 
 #search-form {
   position: relative;
-  left: 23%;
+  left: 26.3%;
 }
 
 #search-input {
@@ -69,6 +71,7 @@ main {
 
 #pages-section {
   height: 600px;
+  padding: 0em .9em 0em 1.3em;
   border-radius: 4px;
   background-color: #fff;
   box-shadow: 0px 0px 15px 2px #d6d6d6;
@@ -152,4 +155,48 @@ main {
 
 .footer-post-user {
   display: inline-block;
+}
+
+
+/* SUBREDDITS */
+#subred-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+#subred-section h2 {
+  font-size: 23px;
+}
+
+.subred-div {
+  display: flex;
+  border-radius: 7px;
+  padding: .2em 1em;
+  align-items: center;
+}
+
+.subred-div:hover {
+  background-color: #6f6f6f1a;
+}
+
+.subred-div.active {
+  background-color: #002aff54;
+  border-left: 4px solid #3d5af1;
+  border-radius: 0px;
+}
+
+.subred-img {
+  height: 2em;
+  width: 2em;
+  border-radius: 50%;
+  margin-right: 8px;
+  border: 3px solid red;
+}
+
+.subred-p {
+  font-size: 15px;
+  color: #181818;
+  font-weight: 600;
 }
