@@ -1,33 +1,30 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { useRef } from "react";
+import { subreddits } from "./display-data/Subreddits";
 
 
 export function Main() {
-    const [isActive, setIsActive] = useState(false);
-    const subDivRef = useRef(null);
+    const [activeIndex, setActiveIndex] = useState(null); // Track which element is active
 
-    useEffect(() => {
-        const subDiv = subDivRef.current;
-        
-        if (subDiv) {
-            subDiv.addEventListener("mousedown", toggleBackground);
-            
-            return () => subDiv.removeEventListener("mousedown", toggleBackground);
-        }
-    }, []);
-    const subD = document.querySelector(".subred-div");
-    if (isActive) {
-        subD.classList.toggle("active", isActive)
-    } else {
-        subD.classList.remove("active");
-    }
-    console.log(isActive)
-
-    const toggleBackground = () => {
-        setIsActive(prev => !prev);
+    const handleToggleBackground = (index) => {
+        setActiveIndex(prevIndex => (prevIndex === index ? null : index));
     };
 
+    function subredditsDiv() {
+        return (
+            subreddits.map((sub, index) => (
+                <div
+                    key={index}
+                    className={`subred-div ${activeIndex === index ? 'active' : ''}`}
+                    onMouseDown={() => handleToggleBackground(index)}
+                >
+                    <img src={sub.logo} className="subred-img" style={{ border: `3px solid ${sub.borderColor}` }} />
+                    <p className="subred-p">{sub.label}</p>
+                </div>
+            ))
+        );
+    }
 
     return(
         <main>
@@ -85,14 +82,7 @@ export function Main() {
                 <section id="pages-section">
                     <div id="subred-section">
                         <h2>Subreddits</h2>
-                        <div ref={subDivRef} className="subred-div">
-                            <img src={require("./images/subreddit_1.png")} className="subred-img"/>
-                            <p className="subred-p">FirstSubreddit</p>
-                        </div>
-                        <div className="subred-div">
-                            <img src={require("./images/subreddit_2.png")} className="subred-img"/>
-                            <p className="subred-p">SecondSubreddit</p>
-                        </div>
+                        {subredditsDiv()}
                     </div>                  
                 </section>
             </section>
