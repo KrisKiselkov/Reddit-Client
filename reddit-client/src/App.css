@@ -60,7 +60,7 @@ main {
   grid-template-columns: 2.6fr .9fr;
   column-gap: 30px;
   width: 95%;
-  height: auto; /* remove pls*/
+   /* remove pls*/
   margin: 0 auto;
 }
 
@@ -70,7 +70,7 @@ main {
 }
 
 #pages-section {
-  height: 600px;
+  height: auto;
   padding: 0em .9em 0em 1.3em;
   border-radius: 4px;
   background-color: #fff;
