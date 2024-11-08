@@ -9,7 +9,7 @@ export const redditSlice = createSlice({
         isLoading: false,
         error: false,
         searchTerm: '',
-        selectedSubreddits: '/r/pics/',
+        selectedSubreddit: '/r/pics/',
     },
     reducers: {
         setPosts(state, action) {
@@ -30,8 +30,8 @@ export const redditSlice = createSlice({
         setSearchTerm(state, action) {
             state.searchTerm = action.payload;
         },
-        setSelectedSubreddits(state, action) {
-            state.selectedSubreddits = action.payload;
+        setSelectedSubreddit(state, action) {
+            state.selectedSubreddit = action.payload;
             state.searchTerm = '';
         },
         toggleShowingComments(state, action) {
@@ -60,9 +60,9 @@ export const redditSlice = createSlice({
 
 export const {
     setPosts,
-    getPostsFailed,
-    getPostsSuccess,
-    startGetPosts,
+    failedPosts,
+    successfulPosts,
+    loadingPosts,
     setSearchTerm,
     setSelectedSubreddit,
     toggleShowingComments,
@@ -77,7 +77,7 @@ export default redditSlice.reducer;
 // Redux Thunk that gets posts from a subreddit.
 export const fetchPosts = (subreddit) => async (dispatch) => {
     try {
-        dispatch(startGetPosts());
+        dispatch(loadingPosts());
         const posts = await getSubredditPosts(subreddit);
 
         // We are adding showingComments and comments as additional fields to handle showing them when the user wants to. We need to do this because we need to call another API endpoint to get the comments for each post.
@@ -88,9 +88,9 @@ export const fetchPosts = (subreddit) => async (dispatch) => {
             loadingComments: false,
             errorComments: false
         }));
-        dispatch(getPostsSuccess(postData));
+        dispatch(successfulPosts(postData));
     } catch (error) {
-        dispatch(getPostsFailed());
+        dispatch(failedPosts());
     }
 };
 

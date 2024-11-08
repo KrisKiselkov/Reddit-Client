@@ -60,18 +60,16 @@ main {
   grid-template-columns: 2.6fr .9fr;
   column-gap: 30px;
   width: 95%;
-   /* remove pls*/
   margin: 0 auto;
 }
 
 #post-section {
   height: auto;
-  
 }
 
 #pages-section {
-  height: auto;
-  padding: 0em .9em 0em 1.3em;
+  height: fit-content;
+  padding: 0em .9em 1.3em 1.3em;
   border-radius: 4px;
   background-color: #fff;
   box-shadow: 0px 0px 15px 2px #d6d6d6;
