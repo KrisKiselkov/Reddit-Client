@@ -25,7 +25,7 @@ export function Main() {
 
     /* isLoading if*/
     
-    /*if (error) {
+    if (error) {
         return (
             <div className="error">
                 <h2>Failed to load posts.</h2>
@@ -37,9 +37,9 @@ export function Main() {
                 </button>
             </div>
         );
-    }*/
+    }
 
-    /*if (posts.length === 0) {
+    if (posts.length === 0) {
         return (
             <div className="error">
                 <h2>No posts matching "{searchTerm}"</h2>
@@ -48,7 +48,7 @@ export function Main() {
                 </buton>
             </div>
         );
-    }*/
+    }
 
 
     return(

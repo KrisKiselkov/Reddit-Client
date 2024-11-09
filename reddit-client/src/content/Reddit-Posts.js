@@ -1,5 +1,12 @@
 import { useState } from "react";
-import { redditPosts } from "./display-data/Reddit-Posts-Data";
+import {
+    TiArrowUpOutline,
+    TiArrowUpThick,
+    TiArrowDownOutline,
+    TiArrowDownThick,
+    TiMessage,
+  } from 'react-icons/ti';
+import { Comment } from "./Comment";
 
 
 export const RedditPosts = (props) => {
@@ -29,7 +36,20 @@ export const RedditPosts = (props) => {
                 </div>
             );
         }
+
+        /* if loadingComments */
+
+        if (post.showingComments) {
+            return (
+                <div>
+                    {post.comments.map((comment) => (
+                        <Comment comment={comment} key={comment.id}/>
+                    ))}
+                </div>
+            )
+        }
     }
+
 
     function redditDiv() {
         return (
@@ -45,7 +65,7 @@ export const RedditPosts = (props) => {
                     <h3>{post.title}</h3>
                 </div>
                 <div className="img-div-post">
-                    <img className="img-post" src={post.url}/>
+                    <img className="img-post" src={post.url} alt=""/>
                 </div>
                 <div className="footer-post">
                     <div className="footer-user-info">
@@ -53,8 +73,18 @@ export const RedditPosts = (props) => {
                         <p className="footer-post-user">{post.author}</p>
                     </div>
                     <p className="footer-post-time">11 hours</p>
-                    <p className="footer-post-comment">464</p>                    
+                    <div>
+                        <button
+                            type="button"
+                            className="icon-comment-button"
+                            onClick={() => onToggleComments(post.permalink)}
+                        >
+                            <TiMessage className="icon-comment"/>
+                        </button>
+                        <span className="footer-post-comment">464</span>                    
                     </div>
+                </div>
+                    {renderComments()}
             </div>
         );
     };
