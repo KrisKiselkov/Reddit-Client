@@ -72,7 +72,7 @@ main {
   padding: 0em .9em 1.3em 1.3em;
   border-radius: 4px;
   background-color: #fff;
-  box-shadow: 0px 0px 15px 2px #d6d6d6;
+  box-shadow: 0px 0px 15px 2px hsl(0, 0%, 84%);
 }
 
 
@@ -196,4 +196,33 @@ main {
   font-size: 15px;
   color: #181818;
   font-weight: 600;
+}
+
+
+/* COMMENTS */
+.post-comment {
+  margin: 0 0 0 auto;
+  width: 88%;
+  background-color: #dfdfdf21;
+  border-radius: 2px;
+  padding: .8em .9em .01em;
+  margin-bottom: 1em;
+  color: #4b4b4b;
+  transition: box-shadow .2s;
+  font-size: 15px;
+}
+
+.post-comment:hover {
+  box-shadow: -3px 5px 15px 2px #d6d6d6;
+}
+
+.comment-author {
+  color: #3d5af1;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.comment-time {
+  float: right;
+  font-style: italic;
 }

@@ -7,8 +7,8 @@ export const Comment = (props) => {
     return (
         <div className="post-comment">
             <div className="comment-data">
-                <p className="comment-author">{comment.author}</p>
-                <p className="comment-time">4 hourrs ago</p>
+                <span className="comment-author">{comment.author}</span>
+                <span className="comment-time">4 hourrs ago</span>
 
             </div>
             <ReactMarkdown children={comment.body}/>
