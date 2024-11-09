@@ -1,4 +1,5 @@
 import ReactMarkdown from 'react-markdown';
+import moment from 'moment';
 
 
 export const Comment = (props) => {
