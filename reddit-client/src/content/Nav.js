@@ -1,6 +1,27 @@
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setSearchTerm } from "./slices/redditSlice";
+
 
 
 export function Nav() {
+    const [ searchTermInput, setSearchTermInput ] = useState('');
+    const searchTerm = useSelector((state) => state.reddit.searchTerm);
+    const dispatch = useDispatch();
+
+
+    useEffect(() => {
+        setSearchTermInput(searchTerm);
+    }, [searchTerm]);
+
+    const onSearchSubmit = (e) => {
+        e.preventDefault();
+        dispatch(setSearchTerm(searchTermInput));
+    };
+
+    console.log(searchTermInput)
+
+
     return (
         <>
             <header>
@@ -10,8 +31,11 @@ export function Nav() {
 
                 <p id="logo-txt">Reddit<span>Minimal</span></p>
 
-                <form type="submit" id="search-form">
-                    <input type="search" id="search-input" placeholder="Search..."></input>
+                <form type="search" id="search-form" onSubmit={onSearchSubmit}>
+                    <input type="search" id="search-input" placeholder="Search..."
+                    value={searchTermInput}
+                    onChange={(e) => setSearchTermInput(e.target.value)}
+                    ></input>
                 </form>
             </header>
         </>

@@ -1,5 +1,5 @@
 import ReactMarkdown from 'react-markdown';
-import moment from 'moment';
+import moment, { unix } from 'moment';
 
 
 export const Comment = (props) => {
@@ -9,7 +9,7 @@ export const Comment = (props) => {
         <div className="post-comment">
             <div className="comment-data">
                 <span className="comment-author">{comment.author}</span>
-                <span className="comment-time">4 hourrs ago</span>
+                <span className="comment-time">{moment.unix(comment.created_utc).fromNow()}</span>
 
             </div>
             <ReactMarkdown children={comment.body}/>
