@@ -83,25 +83,8 @@ main {
   border-radius: 4px;
   background-color: #fff;
   box-shadow: 0px 0px 15px 2px #d6d6d6;
-  padding: 1em 1em;
+  padding: 1em 1em .5em;
   margin-bottom: 2em;
-}
-
-.vote-post {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  width: 4em;
-  height: 8em;
-  text-align: center;
-}
-
-.vote-post p {
-  margin: 0em 1em;
-  font-weight: bold;
-  color: #717171;
 }
 
 .main-post-txt {
@@ -123,7 +106,7 @@ main {
 .img-post {
   height: auto;
   width: 100%;
-  border-radius: 8px;
+  border-radius: 6px;
 }
 
 .footer-post {
@@ -135,12 +118,12 @@ main {
   width: 90%;
   position: relative;
   left: 4.4em;
-  margin-top: 1.5em;
+  margin-top: 1em;
   border-top: 1px solid #d6d6d6;
 }
 
 .footer-post p {
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .footer-post-icon {
@@ -153,6 +136,10 @@ main {
 
 .footer-post-user {
   display: inline-block;
+}
+
+.footer-post-comment {
+  font-size: 14px;
 }
 
 
@@ -199,6 +186,57 @@ main {
 }
 
 
+/* VOTES */
+.icon-action-button {
+  background-color: transparent;
+  border: none;
+}
+
+.icon-action {
+  scale: 1.8;
+  color: #717171;
+}
+
+.up-active {
+  .icon-action {
+    color: green;
+  }
+}
+
+.up-vote {
+  position: relative;
+  top: .9em;
+}
+
+.down-active {
+  .icon-action {  
+    color: red;
+  }
+}
+
+.down-vote {
+  position: relative;
+  bottom: .9em;
+}
+
+.vote-post {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 4em;
+  height: 8em;
+  text-align: center;
+}
+
+.vote-post p {
+  margin: 0em 1em;
+  font-weight: bold;
+  color: #717171;
+}
+
+
 /* COMMENTS */
 .post-comment {
   margin: 0 0 0 auto;
@@ -225,4 +263,26 @@ main {
 .comment-time {
   float: right;
   font-style: italic;
+}
+
+.icon-comment-button {
+  border: none;
+  background-color: transparent;
+  padding: 5px 7px;
+  border-radius: 4px;
+  margin-right: 5px;
+}
+
+.showing-comments {
+  color: #3d5af1;
+}
+
+.icon-comment-button:hover {
+  background-color: #ececec;
+}
+
+.icon-comment {
+  position: relative;
+  top: 1px;
+  scale: 1.8;
 }
