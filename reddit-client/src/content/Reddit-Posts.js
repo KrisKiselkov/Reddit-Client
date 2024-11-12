@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Skeleton from 'react-loading-skeleton';
 import {
     TiArrowUpOutline,
     TiArrowUpThick,
@@ -37,7 +38,15 @@ export const RedditPosts = (props) => {
             );
         }
 
-        /* if loadingComments */
+        if (post.loadingComments) {
+            return (
+                <div>
+                    <Skeleton />
+                    <Skeleton />
+                    <Skeleton />
+                </div>
+            )
+        }
 
         if (post.showingComments) {
             return (
