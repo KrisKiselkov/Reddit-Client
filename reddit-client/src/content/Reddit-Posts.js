@@ -9,7 +9,7 @@ import {
     TiMessage,
   } from 'react-icons/ti';
 import { Comment } from "./Comment";
-import shortenNumber from 'shorten-number'
+import millify from "millify";
 
 
 export const RedditPosts = (props) => {
@@ -47,10 +47,10 @@ export const RedditPosts = (props) => {
     
     const getVoteType = () => {
         if (voteValue === 1) {
-            return 'up-vote';
+            return 'up-color';
         }
         if (voteValue === -1) {
-            return 'down-vote';
+            return 'down-color';
         }
     
         return '';
@@ -99,7 +99,7 @@ export const RedditPosts = (props) => {
                         {renderUpVote()}
                     </button>
                     <br></br>
-                    <p>{shortenNumber(post.ups, 1)}</p>
+                    <p className={`vote-p ${getVoteType()}`}>{millify(post.ups)}</p>
                     <br></br>
                     <button className={`icon-action-button down-vote ${voteValue === -1 && 'down-active'}`}
                     onClick={() => onClickVote(-1)}>
